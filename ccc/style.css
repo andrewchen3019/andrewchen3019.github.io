@@ -1,0 +1,195 @@
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
+} 
+* {
+  background-size: cover;
+}
+.gold {
+  background-color: gold;
+  color: green;
+}
+body {
+  margin: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+.welcome {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("https://techcrunch.com/wp-content/uploads/2015/04/codecode.jpg?w=1024");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5em;
+}
+#logos{
+  justify-content: space-between;
+}
+.showed {
+  opacity: 1;
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+}
+.welcome h1 {
+  width: 50vw;
+
+}
+.nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0;
+  background-color: gray;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav-link {
+  background-color: gray;
+  font-weight: bold;
+
+  padding: 15px;
+}
+
+.nav-link:hover {
+  background-color: lightgray;
+}
+.nav a{ 
+  margin: 0;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+
+#contact {
+  background-color: gray;
+  color: white;
+  text-align: center;
+  height: 50vh;
+}
+
+.scroll {
+  overflow: scroll;
+  scrollbar-width: 0;
+}
+.section {
+  min-height: 500px;
+  padding: 10px;
+}
+.hide {
+  opacity: 0;
+}
+.red {
+  color: red;
+}
+.grid-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.section-text {
+  padding: 1rem;
+  overflow: scroll;
+  scrollbar-width: 0;
+}
+.section-title {
+  font-size: 3rem;
+}
+.section-paragraph {
+  font-size: 1rem;
+}
+.green {
+  background-color: green;
+  color: white;
+}
+.section-pic {
+  width: 100%;
+  height: auto;
+}
+.result {
+  cursor: pointer;
+}
+.announcement, .result {
+  display: flex;
+  padding: 10px;
+  background-color: whitesmoke;
+  margin: 20px 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.date {
+  font-weight: bold;
+}
+.left {
+  display: flex;
+  margin-right: 10px;
+}
+.dot {
+  font-size: 0.5rem;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+.ann-text {
+  margin: 0 auto;
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  overflow: hidden; /* Hides any overflowing text */
+  text-overflow: ellipsis;
+}
+#contact-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+#contact-container div {
+  padding: 10px;
+  line-height: 3rem;
+}
+
+#contact-container div a {
+  color: white;
+}
+#twitter {
+  font-size: 30px;
+}
+.resource {
+  margin: 10px;
+}
+
+.result-dropdown {
+  margin: 20px;
+  background-color: whitesmoke;
+}
+.result-text {
+  padding: 10px;
+}
+.none {
+  display: none!important;
+}
+
+.big-dot {
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+.lesson {
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media(max-width: 800px){
+  .grid-section {
+     display: block; 
+  }
+}
