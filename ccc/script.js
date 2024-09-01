@@ -76,10 +76,10 @@ function annTrim(text){
   }else return text.substr(0, 200);
 }
 let annoucements = [
-  {
-    date: new Date(2024, 7, 28),
-    message: "First meeting is today"
-  },
+  // {
+  //   date: new Date(2024, 7, 28),
+  //   message: "First meeting is today"
+  // },
   
  ]
 annoucements.sort(function(a, b) {
