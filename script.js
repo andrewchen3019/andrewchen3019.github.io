@@ -59,6 +59,17 @@ let competitionResults = [
     teamResults: ["1st place, Team Test: Aiden Zhang, Edward Li, Catherine Xu, Kyros Wu, Kai Merrill, Andrew Chen", "2nd place, Relay Round: Edward Li, Kyros Wu, Aiden Zhang"]
   }
 ]
+let categories = [{
+  name: "Special Events",
+  color: "#90EE90"
+}]
+let events = [
+  {
+    date: "2024-8-11",
+    title: "Club Fair",
+    category: 0
+  }
+]
 let annoucements = [
   {
     date: new Date(2024, 5, 1),
@@ -144,5 +155,133 @@ const resultCon = document.getElementById("result-container");
 }
 
 
+// calendar
+const calendarTable = document.getElementById("calendar");
+
+const calendarHeader = document.getElementById('calendar-header');
+const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+const dayInAMonth= [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
 
 
+let years = [2024, 2025];
+let days = [];
+weekdays.forEach(weekday => calendarHeader.innerHTML += `<div class="cal-heading">${weekday}</div>`);
+
+let firstDay = new Date(years[0], 0);
+for(let i=0; i < firstDay.getDay(); i++){
+  days.push("dummy");
+}
+for(let yearIndex=0; yearIndex < years.length; yearIndex++){
+  for(let i=0; i < 12; i++){
+    let daysNum = dayInAMonth[i];
+    if(years[yearIndex] % 4 == 0 & i == 1){
+      daysNum++;
+    }
+    for(let j=1; j <= daysNum; j++){
+      days.push({ year: years[yearIndex], month: i, day: j })
+    }
+  }
+}
+
+days.forEach(day => {
+  if(day == "dummy"){
+    calendarTable.innerHTML += `<div class="blank-cell"></div>`
+  } else {
+    calendarTable.innerHTML += `<div class="cal-day" id="${day.year}-${day.month}-${day.day}">${day.day}</div>`
+  }
+  
+})
+
+
+const yearSelect = document.getElementById("year");
+
+years.forEach(year => {
+  yearSelect.innerHTML += `<option value="${year}" id="${year}">${year}</option>`;
+  
+})
+const monthSelect = document.getElementById("month");
+
+for(let i=0; i < 12; i++){
+  monthSelect.innerHTML += `<option value="${i}">${months[i]}</option>`;
+}
+
+yearSelect.value = currentYear;
+monthSelect.value = currentMonth;
+
+
+function calendarChange(){
+    // document.getElementById(`${currentYear}-${currentMonth}-1`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const targetElement = document.getElementById(`${currentYear}-${currentMonth}-1`);
+
+    // Calculate the offset of the target element relative to the container
+    const containerTop = calendarTable.getBoundingClientRect().top;
+    const elementTop = targetElement.getBoundingClientRect().top;
+
+    // Calculate the scroll position inside the calendarTable
+    const scrollPosition = calendarTable.scrollTop + (elementTop - containerTop);
+
+    // Scroll the container smoothly
+    calendarTable.scrollTo({
+      top: scrollPosition,
+      behavior: 'smooth'
+    });
+}
+monthSelect.addEventListener("change", () => {
+  currentMonth = monthSelect.value;
+  calendarChange();
+})
+
+yearSelect.addEventListener("change", () => {
+  currentYear = yearSelect.value;
+  calendarChange();
+})
+
+
+calendarChange();
+
+events.forEach(event => {
+  document.getElementById(event.date).innerHTML += `<div class="event" style="background-color: ${categories[event.category].color};">${event.title}</div>`
+})
+
+
+document.getElementById(`${currentYear}-${currentMonth}-${new Date().getDate()}`).classList.add("cal-today");
+const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+const daysInMonthLeapYear = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+function getHighestVisibleElement() {
+  for (let i=0; i <  years.length; i++){
+    for(let j=0; j < 12; j++){
+      const element = document.getElementById(`${years[i]}-${j}-8`);
+        // console.log(element);
+        const elementTop = element.offsetTop-calendarTable.offsetTop;
+        const elementBottom =  element.offsetHeight;
+      //   console.log(elementTop);
+      // console.log(elementBottom)
+      // console.log(containerTop)
+        // Check if the element is visible within the container
+        // if (elementTop < containerBottom && elementBottom > containerTop) {
+          if(elementTop + elementBottom > calendarTable.scrollTop){
+             return {year: years[i], month: j}
+          }
+         
+        // }
+      }
+  }
+    
+}
+
+calendarTable.addEventListener("scroll", () => {
+  const stuff = getHighestVisibleElement();
+  if(stuff.month != currentMonth || stuff.year != currentYear){
+    currentMonth = stuff.month;
+    currentYear = stuff.year;
+    monthSelect.value = currentMonth
+    yearSelect.value = currentYear
+  }
+})

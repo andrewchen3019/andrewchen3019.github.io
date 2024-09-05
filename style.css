@@ -175,6 +175,37 @@ body {
   font-size: 1rem;
   margin-right: 5px;
 }
+
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: calc( 3 * 100vw / 7);
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+#calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.cal-heading {
+  font-weight: bold;
+}
+.cal-day, .blank-day {
+  aspect-ratio: 1 / 1;
+  border: 1px solid black;
+  padding: 5px;
+}
+.cal-today {
+  background-color: lightgray;
+}
+#month, #year {
+  padding: 10px;
+  outline: 0;
+  border: 0;
+  font-size: 30px;
+}
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
