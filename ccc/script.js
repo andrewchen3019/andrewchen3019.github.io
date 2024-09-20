@@ -76,6 +76,10 @@ function annTrim(text){
   }else return text.substr(0, 200);
 }
 let annoucements = [
+  {
+    date: new Date(2024, 8, 19),
+    title: "First Competitive Coding Club Meeting – Next Thursday!"
+  }
  ]
 annoucements.sort(function(a, b) {
   return b.date - a.date;
@@ -107,10 +111,55 @@ for(let i=0; i < annoucements.length; i++){
   annCon.innerHTML += `<div class="announcement" id="ann-${i}">
        <div class="left"><div class="dot ${isNew(ann.date) ? "red" : "hide" }"><i class="fa-solid fa-circle"></i></div>
         <div class="date">${formatDate(ann.date)}</div></div>
-        <div class="ann-text">${ann.message}</div>
+        <div class="ann-text">${ann.title}</div>
+        
   </div>`
 }
 
 
 
 
+
+// typing title
+
+const typingTitle = document.getElementById("typing-title");
+const cursor  = document.getElementById("cursor");
+let showCursor = false;
+let text = "Welcome to the Competitive Coding Club";
+let index = 0;
+let flashCount = 0;
+const cursorInterval = setInterval(() => {
+  cursor.style.opacity = showCursor ? "0":"1";
+  showCursor = !showCursor;
+  flashCount++;
+  if(flashCount > 29) clearInterval(cursorInterval);
+}, 200)
+
+const interval = setInterval(() => {
+  typingTitle.innerHTML += text[index];
+  index++;
+  if(index == text.length){
+    clearInterval(interval);
+  }
+  
+}, 100)
+const navMin = 958;
+
+//const tabs = ["welcome", "about", "announcements", "resources", "contact"];
+let isMenu = false;
+const navTexts = document.querySelectorAll(".nav-text")
+window.addEventListener("resize", () => {
+  if(window.innerWidth < navMin){
+    if(!isMenu) {
+      console.log("ahhhhh")
+      navTexts.forEach(navText => navText.style.display="none")
+      isMenu = true;
+    }
+  }else {
+    if(isMenu){
+      console.log("wheeww")
+       navTexts.forEach(navText => navText.style.display="inline")
+      isMenu = false;
+    }
+  }
+})

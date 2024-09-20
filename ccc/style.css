@@ -8,12 +8,13 @@ html {
   background-size: cover;
 }
 .gold {
-  background-color: gold;
-  color: green;
+  background-color: gray;
+  color: white;
 }
 body {
   margin: 0;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+  font-family:'Courier New', Courier, monospace;
+  /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  */
 }
 .welcome {
   margin: 0;
@@ -27,34 +28,86 @@ body {
   color: white;
   font-size: 1.5em;
 }
+.welcome::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+      circle at center, 
+      rgba(0, 0, 0, 0.5) 60%, 
+      rgba(0, 0, 0, 0.8) 85%, 
+      rgba(0, 0, 0, 1) 100%
+  );
+
+  
+}
+/* typewriting */
+.welcome h1 {
+  z-index: 10;
+  font-size: 2rem;
+  max-width: 50vw;
+  margin: 0;
+  /* white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid white;
+  animation: typing 3.5s steps(38, end) forwards, blink-caret 0.75s step-end infinite;
+  color: white; */
+}
+#cursor {
+  color: white;
+  display: inline;
+  margin: 0;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 50vw; }
+}
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+
+
+
+
+/*end typewriting*/
 #logos{
   justify-content: space-between;
+  z-index: 10;
 }
 .showed {
   opacity: 1;
 }
 .fade-in {
-  opacity: 0;
+  /*opacity: 0;*/
   animation: fadeIn 2s ease-in forwards;
-}
-.welcome h1 {
-  width: 50vw;
-
 }
 .nav {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   margin: 0;
-  background-color: gray;
+
   position: sticky;
   top: 0;
   z-index: 10;
 }
 .nav-link {
-  background-color: gray;
+  background-color: #3d3c3c;
   font-weight: bold;
+  padding: 20px;
 
-  padding: 15px;
+}
+.nav-link .fas{
+  display: inline;
 }
 
 .nav-link:hover {
@@ -104,7 +157,7 @@ body {
   font-size: 1rem;
 }
 .green {
-  background-color: green;
+  background-color: darkblue;
   color: white;
 }
 .section-pic {
@@ -175,7 +228,10 @@ body {
   font-size: 1rem;
   margin-right: 5px;
 }
-
+#topics {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
 .lesson {
   color: black;
   padding: 10px;
@@ -191,5 +247,16 @@ body {
 @media(max-width: 800px){
   .grid-section {
      display: block; 
+  }
+}
+@media(max-width: 630px){
+  #topics {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width: 430px){
+  #topics {
+    grid-template-columns: 1fr;
   }
 }
