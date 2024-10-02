@@ -1,3 +1,4 @@
+const join = document.getElementById("join");
 const resources = [{
  name: "USACO Guide Bronze",
 link: "https://usaco.guide/bronze/"
@@ -139,6 +140,7 @@ const interval = setInterval(() => {
   typingTitle.innerHTML += text[index];
   index++;
   if(index == text.length){
+    join.style.display = "block";
     clearInterval(interval);
   }
   
@@ -148,6 +150,10 @@ const navMin = 958;
 //const tabs = ["welcome", "about", "announcements", "resources", "contact"];
 let isMenu = false;
 const navTexts = document.querySelectorAll(".nav-text")
+if(window.innerWidth < navMin){
+   navTexts.forEach(navText => navText.style.display="none")
+}
+
 window.addEventListener("resize", () => {
   if(window.innerWidth < navMin){
     if(!isMenu) {
