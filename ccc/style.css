@@ -2,10 +2,17 @@ html {
   height: 100%;
   width: 100%;
   margin: 0;
+  scroll-behavior: smooth;
 
 } 
 * {
   background-size: cover;
+}
+#leaders-list  a{
+  display: block;
+}
+strong {
+  line-height: 1rem;
 }
 .gold {
   background-color: gray;
@@ -247,7 +254,6 @@ body {
   font-family:'Courier New', Courier, monospace;
   font-weight: bold;
   cursor: pointer;
-  display: none;
 }
 #join:hover {
   color: rgba(255, 255, 255, 0.8);

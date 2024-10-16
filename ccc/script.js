@@ -140,7 +140,7 @@ const interval = setInterval(() => {
   typingTitle.innerHTML += text[index];
   index++;
   if(index == text.length){
-    join.style.display = "block";
+   // join.style.display = "block";
     clearInterval(interval);
   }
   
@@ -168,4 +168,26 @@ window.addEventListener("resize", () => {
       isMenu = false;
     }
   }
+})
+const topicsContainer = document.getElementById("topics");
+const lessons = [
+  {title: "Introduction",
+    link: "https://docs.google.com/presentation/d/1RJnkUkRRXyd52osEANDW8-LmvCN_1Uit/edit?usp=sharing&ouid=108230909046799498177&rtpof=true&sd=true"
+  },
+  {
+    title: "Time Complexity",
+    link: "https://docs.google.com/presentation/d/1OeuL3hZbtcuusuyxaUzfmUotWAEvJcVz/edit?usp=sharing&ouid=108230909046799498177&rtpof=true&sd=true",
+  },
+  {
+    title: "Simulation",
+  }
+
+]
+topicsContainer.innerHTML = "";
+lessons.forEach(lesson => {
+  topicsContainer.innerHTML += `
+    <div class="lesson">
+      <h2 id="lecture-title">${lesson.title}</h2>
+      ${lesson.link ? `<a href="${lesson.link}" class="lecture-link" target="_blank">Slides</a>`: "" }
+    </div>`
 })
