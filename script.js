@@ -62,12 +62,36 @@ let competitionResults = [
 let categories = [{
   name: "Special Events",
   color: "#90EE90"
+}, {
+  name: "Math Competitions",
+  color: "#f05d5d"
+},{
+  name: "Math Exam",
+  color: "#f0cb5d"
 }]
 let events = [
   {
     date: "2024-8-11",
     title: "Club Fair",
     category: 0
+  },
+  {date:"2024-9-25",
+    title: "Regina Math Contest",
+    category: 1
+  },
+  {
+    date: "2024-10-6",
+    title: "Platteville Math Contest",
+    category: 1
+  },
+  {
+    date: "2024-10-6",
+    title: "AMC",
+    category: 2
+  },
+  {date:"2024-10-16",
+    title: "West Math Contest",
+    category: 1
   }
 ]
 let annoucements = [
