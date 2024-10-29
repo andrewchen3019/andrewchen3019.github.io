@@ -3,6 +3,10 @@ const data = [
         title: "1% skills, 99% Editing",
         id: "99%",
         videos: ["piano-99", "quartet-99", "recorder-99", "violin-99"]
+    },{
+        title: "Brett's Cursed Compositions",
+        id: "brett-cursed",
+        videos: ["gigachad-phonk"]
     }
 ]
 const main = document.getElementById("main");
