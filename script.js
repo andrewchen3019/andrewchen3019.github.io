@@ -57,7 +57,16 @@ let competitionResults = [
     overallResults: ["1st Place school overall with a total of 286.5 points"],
     individualResults: ["Aiden Zhang ’27 — 5th place, 9th grade individual","Edward Li ’26 — 2nd place, 10th grade individual and 7th place overall ", "Catherine Xu ’26 — 4th place, 10th grade individual and 10th place overall "],
     teamResults: ["1st place, Team Test: Aiden Zhang, Edward Li, Catherine Xu, Kyros Wu, Kai Merrill, Andrew Chen", "2nd place, Relay Round: Edward Li, Kyros Wu, Aiden Zhang"]
-  }
+  },
+  {
+    date: new Date(2024, 10, 6),
+    pic: "2024platteville.jpg",
+    name: "51st Annual University of Wisconsin-Platteville Mathematics Meet",
+    loc: "University of Wisconsin-Platteville",
+    overallResults: "1st place team",
+    individualResults: ["Helena Yang - perfect score", "Raphy Policeni - perfect score"],
+    teamResults: ["All-Academic Team members: Level 1: Helena Yang, Raphy Policeni, Maximilian Hing, Awen Li, Tommy Gao" , "Level 2: Kai Merrill, Steve Zeng, Aiden Zhang, Jaynou Ma"]
+  },
 ]
 let categories = [{
   name: "Special Events",
