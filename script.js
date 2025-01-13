@@ -65,7 +65,7 @@ let competitionResults = [
     loc: "University of Wisconsin-Platteville",
     overallResults: ["1st place team"],
     individualResults: ["Helena Yang - perfect score", "Raphy Policeni - perfect score"],
-    teamResults: ["All-Academic Team members: Level 1: Helena Yang, Raphy Policeni, Maximilian Hing, Awen Li, Tommy Gao" , "Level 2: Kai Merrill, Steve Zeng, Aiden Zhang, Jaynou Ma"]
+    teamResults: ["All-Academic Team members:", "Level 1: Helena Yang, Raphy Policeni, Maximilian Hing, Awen Li, Tommy Gao" , "Level 2: Kai Merrill, Steve Zeng, Aiden Zhang, Jaynou Ma"]
   }
 ]
 let categories = [{
@@ -150,42 +150,56 @@ for(let i=0; i < annoucements.length; i++){
 const resultCon = document.getElementById("result-container");
 
  resultCon.innerHTML = "";
- for(let  i=0; i < competitionResults.length; i++){
+
+ for (let i = 0; i < competitionResults.length; i++) {
   let result = competitionResults[i];
-   resultCon.innerHTML += `<div class="result" id="result-${i}">           <div class="left">
-   <div class="big-dot"><i class="fa-solid fa-caret-down"></i></div>
-       <div class="date">${formatDate(result.date)}</div></div>
-             <div class="ann-text">${result.name}</div>
-       </div>
+  
+  // Create a container for the result
+  const resultDiv = document.createElement("div");
+  resultDiv.classList.add("result");
+  resultDiv.id = `result-${i}`;
+  
+  resultDiv.innerHTML = `
+    <div class="left">
+      <div class="big-dot"><i class="fa-solid fa-caret-down"></i></div>
+      <div class="date">${formatDate(result.date)}</div>
+    </div>
+    <div class="ann-text">${result.name}</div>
+  `;
 
-        <div class="result-dropdown grid-section one-picture-layout none" id="dropdown-${i}">
-        <img class="section-pic" src="competition/${result.pic}" height="500px" />
-        <div class="result-text">
-          <h1 class="result-title">${result.name}</h1>
-          <p class="result-paragraph">${formatDate(result.date)}</p>
-          <p class="result-paragraph">${result.loc}</p>
-          
-          <h2 class="result-subheading"> Overall Results </h2>
-          <p class="result-paragraph">${formatList(result.overallResults)}</p>
-          <h2 class="result-subheading"> Team Results</h2>
-          <p class="result-paragraph">${formatList(result.teamResults)}</p>
-          <h2 class="result-subheading"> Individual Results </h2>
-          <p class="result-paragraph">${formatList(result.individualResults)}</p>
-        </div>
-      </div>`
+  const dropdownDiv = document.createElement("div");
+  dropdownDiv.classList.add("result-dropdown", "grid-section", "one-picture-layout", "none");
+  dropdownDiv.id = `dropdown-${i}`;
+  
+  dropdownDiv.innerHTML = `
+    <img class="section-pic" src="competition/${result.pic}" height="500px" />
+    <div class="result-text">
+      <h1 class="result-title">${result.name}</h1>
+      <p class="result-paragraph">${formatDate(result.date)}</p>
+      <p class="result-paragraph">${result.loc}</p>
+      <h2 class="result-subheading">Overall Results</h2>
+      <p class="result-paragraph">${formatList(result.overallResults)}</p>
+      <h2 class="result-subheading">Team Results</h2>
+      <p class="result-paragraph">${formatList(result.teamResults)}</p>
+      <h2 class="result-subheading">Individual Results</h2>
+      <p class="result-paragraph">${formatList(result.individualResults)}</p>
+    </div>
+  `;
 
-  document.getElementById(`result-${i}`).addEventListener("click", () => {
-     if(document.getElementById(`dropdown-${i}`).classList.contains("none")){
-      document.getElementById(`result-${i}`).querySelector(".big-dot").innerHTML = `<i class="fa-solid fa-caret-up"></i>`
-         document.getElementById(`dropdown-${i}`).classList.remove("none");
-       
-     }else {
-      document.getElementById(`result-${i}`).querySelector(".big-dot").innerHTML = `<i class="fa-solid fa-caret-down"></i>`;
-       document.getElementById(`dropdown-${i}`).classList.add("none");
-     }
-   })
+  resultCon.appendChild(resultDiv);
+  resultCon.appendChild(dropdownDiv);
+
+  // Attach the event listener
+  resultDiv.addEventListener("click", () => {
+    if (dropdownDiv.classList.contains("none")) {
+      resultDiv.querySelector(".big-dot").innerHTML = `<i class="fa-solid fa-caret-up"></i>`;
+      dropdownDiv.classList.remove("none");
+    } else {
+      resultDiv.querySelector(".big-dot").innerHTML = `<i class="fa-solid fa-caret-down"></i>`;
+      dropdownDiv.classList.add("none");
+    }
+  });
 }
-
 
 // calendar
 const calendarTable = document.getElementById("calendar");
