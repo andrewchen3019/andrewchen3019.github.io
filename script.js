@@ -63,10 +63,10 @@ let competitionResults = [
     pic: "2024platteville.jpg",
     name: "51st Annual University of Wisconsin-Platteville Mathematics Meet",
     loc: "University of Wisconsin-Platteville",
-    overallResults: "1st place team",
+    overallResults: ["1st place team"],
     individualResults: ["Helena Yang - perfect score", "Raphy Policeni - perfect score"],
     teamResults: ["All-Academic Team members: Level 1: Helena Yang, Raphy Policeni, Maximilian Hing, Awen Li, Tommy Gao" , "Level 2: Kai Merrill, Steve Zeng, Aiden Zhang, Jaynou Ma"]
-  },
+  }
 ]
 let categories = [{
   name: "Special Events",
@@ -151,7 +151,7 @@ const resultCon = document.getElementById("result-container");
 
  resultCon.innerHTML = "";
  for(let  i=0; i < competitionResults.length; i++){
- let result = competitionResults[i];
+  let result = competitionResults[i];
    resultCon.innerHTML += `<div class="result" id="result-${i}">           <div class="left">
    <div class="big-dot"><i class="fa-solid fa-caret-down"></i></div>
        <div class="date">${formatDate(result.date)}</div></div>
@@ -174,14 +174,13 @@ const resultCon = document.getElementById("result-container");
         </div>
       </div>`
 
-  let resultButton = document.getElementById(`result-${i}`);
-   resultButton.addEventListener("click", () => {
+  document.getElementById(`result-${i}`).addEventListener("click", () => {
      if(document.getElementById(`dropdown-${i}`).classList.contains("none")){
-       resultButton.querySelector(".big-dot").innerHTML = `<i class="fa-solid fa-caret-up"></i>`
+      document.getElementById(`result-${i}`).querySelector(".big-dot").innerHTML = `<i class="fa-solid fa-caret-up"></i>`
          document.getElementById(`dropdown-${i}`).classList.remove("none");
        
      }else {
-       resultButton.querySelector(".big-dot").innerHTML = `<i class="fa-solid fa-caret-down"></i>`;
+      document.getElementById(`result-${i}`).querySelector(".big-dot").innerHTML = `<i class="fa-solid fa-caret-down"></i>`;
        document.getElementById(`dropdown-${i}`).classList.add("none");
      }
    })
