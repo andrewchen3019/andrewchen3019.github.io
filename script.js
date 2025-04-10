@@ -101,6 +101,26 @@ let events = [
   {date:"2024-10-16",
     title: "West Math Contest",
     category: 1
+  },
+  {
+    date: "2025-3-10",
+    title: "Mathleague state qualifier",
+    category: 1
+  },
+  {
+    date: "2025-3-16",
+    title: "Mankato math contest",
+    category: 1
+  },
+  {
+    date: "2025-3-17",
+    title: "Mankato math contest",
+    category: 1
+  }
+  ,  {
+    date: "2025-3-26",
+    title: "Mathleague state",
+    category: 1
   }
 ]
 let annoucements = [

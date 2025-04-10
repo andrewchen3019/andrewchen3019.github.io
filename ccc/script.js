@@ -182,7 +182,6 @@ const lessons = [
     title: "Simulation",
     link: "https://docs.google.com/presentation/d/1KzNapxq3T5bOtgfOmqU2tFAnivzKvhGj/edit?usp=sharing&ouid=108230909046799498177&rtpof=true&sd=true"
   }
-
 ]
 topicsContainer.innerHTML = "";
 lessons.forEach(lesson => {
