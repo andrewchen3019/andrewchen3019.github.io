@@ -1,0 +1,146 @@
+body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("../images/background.jpeg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+#content{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+#header{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+table{
+    border-spacing: 0px;
+    width: 100% !important;
+    margin-top: 5px;
+}
+th, td{
+    border: 1px solid grey;
+    padding: 5px;
+}
+th{
+    font-size: 20px;
+    background-color: lightgray;
+}
+td{
+    text-align: center;
+}
+.alert{
+    background-color: darkred;
+    color: white;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 5px;
+    margin: auto;
+    display: none;
+}
+.name{
+    border-left: 0px;
+}
+.time{
+    border-left: 0px;
+}
+.update-container {
+    background-color:lightgray;
+    text-align: center;
+    border: 1px lightgray solid;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+/* Other */
+.container{
+    width: 95%;
+    padding: 5px;
+    margin: 2rem auto;
+    background-color: white;
+    border-radius: 5px;
+}
+
+
+.today{
+    margin: auto;
+}
+
+#date-container{
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.date-grid{
+    display: flex;
+    justify-content: center;
+}
+#date{
+    margin: 0px;
+    padding: 23px;
+}
+#time{
+    font-size: 60px;
+    font-weight: bold;
+    background-color: rgba(0,0,0, 0.8);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+
+
+/* icon*/
+.red-top{
+    background-color: red;
+    height: 30px;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.date-num{
+    background-color: white;
+    color: black;
+    width: 150px;
+    height: 120px;
+    font-size: 80px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#icon{
+    float:left;
+    padding: 5px;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+}
+
+
+
+#update-all,
+#view-updates{
+    background-color: #262626;
+    color: white;
+    border: 0px;
+    width: 100px;
+}
+#view-updates{
+    width: auto;
+}
+
+#update-all:hover{
+    background-color: #363636;
+}
+#update-time{
+    color: gray;
+    text-align: left;
+}
